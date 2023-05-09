@@ -309,7 +309,7 @@ One potential way to design a routing algorithm that takes into account channel 
 1. Routing algorithm selects hops for a route using only randomness and hop count from our node.
 2. For each route, the smallest channel capacity and smallest `htlc_minimum_msat` of all channels on the route are tracked. If two nodes are
    connected through multiple channels, their channel capacity sum is used.
-3. Upon competition routing algorithm will return a route, smallest channel capacity, and smallest `htlc_minimum_msat`. Now we can safely apply the channel
+3. Upon completition routing algorithm will return a route, smallest channel capacity, and smallest `htlc_minimum_msat`. Now we can safely apply the channel
    capacity heuristic without the risk of favoring big channels over smaller ones. Attempting to route a payment equal to the smallest channel capacity has
    a high probability of resulting in at least one route split and thus higher fees. If we try to route, half of the minimum channel
    capacity probability is significantly lower. So for instance we can
