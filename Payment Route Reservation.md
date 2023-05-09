@@ -43,7 +43,7 @@ part of the `add_reservation` call.
 The `reservation_success` call returns a tuple `(fees_sum, upstream_node.min_cltv_delta + downstream.cltv_delta_sum)` to the upstream route node. Receiver `R` can
 return tuple `(0, C.min_cltv_delta)` to `C` because he is the last node in the route. However, this will reveal to node `C` that `R` is the receiver.
 To hide the fact that `R` is the receiver, `R` will return some non-zero value for a
-fee(check [Amount Correlation Prevention](./Payment%20correlation%20attacks%20and%20prevention.md#amount-correlation)) and semi-random cltv_delta_sum
+fee(check [Amount Correlation Prevention](./Payment%20Correlation%20Attacks%20and%20Preventions.md#amount-correlation)) and semi-random cltv_delta_sum
 value higher than `C.min_cltv_delta`.
 `C` then will attempt to extend his reservation by fee and cltv sum from the `R`. If successful, `C` sends `reservation_success` to `B`, with a
 tuple increased by his fees and his cltv delta. Fees can be ppm, base, or whatever fee function the node operator prefers. If `C` can't extend
@@ -190,7 +190,7 @@ To overcome this issue, single payment reservations can be split into sub-paymen
 
 The one way to do it is to split the amount into N parts, and then create 2*N(or some other multiplier) reservation routes each
 with a payment amount of `payment amount`/N.
-Note that splitting the amount into equal parts suffers from [Payment Amount Correlation](./Payment%20correlation%20attacks%20and%20prevention.md#amount-correlation),
+Note that splitting the amount into equal parts suffers from [Payment Amount Correlation](./Payment%20Correlation%20Attacks%20and%20Preventions.md#amount-correlation),
 but is used here for illustration purposes only.
 Now a sender needs to wait for just N out of 2N reservation routes to return `reservation_success` before he can initiate payment. Note also that multiple
 reservation routes can pass through the same nodes.
@@ -315,7 +315,7 @@ One potential way to design a routing algorithm that takes into account channel 
    capacity probability is significantly lower. So for instance we can
    use a heuristic that says for a route with `min_channel_capacity` we will attempt a maximum payment reservation of `min_channel_capacity/3`. The routing
    algorithm can produce multiple routes by conducting parallel route searches. From the returned routes, the wallet will choose some of them in such
-   a way that it avoids [Amount Correlation](./Payment%20correlation%20attacks%20and%20prevention.md#amount-correlation).
+   a way that it avoids [Amount Correlation](./Payment%20Correlation%20Attacks%20and%20Preventions.md#amount-correlation).
 
 
 ## Fast spam prevention
