@@ -15,7 +15,7 @@ Outlined below are some of the benefits:
 9)  Payment amount and CLTV de-correlation
 10) Reusable static invoices with atomic proof of payment and payer proof
 11) Fast spam prevention
-12) Improved trampoline payments
+12) Exact trampoline payments cost
 13) Channel liquidity probing prevention
 14) Improved Lightning Network Wallet user experience
 15) Elimination of the need for splice-in and splice-out(partially)
