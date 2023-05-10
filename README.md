@@ -12,7 +12,7 @@ Outlined below are some of the benefits:
 6)  Significant reduction of gossip messages
 7)  Healthier, more decentralized network
 8)  Simplified routing algorithm
-9)  Payment amount de-correlation
+9)  Payment amount and CLTV de-correlation
 10) Reusable static invoices with atomic proof of payment and payer proof
 11) Fast spam prevention
 12) Improved trampoline payments
