@@ -331,11 +331,13 @@ the receiver should also contain the `original amount` and `original fiat curren
 amount is greater or equal to his expected conversion amount. If it is, everything continues as before. The signed proof
 of payment message should now include `original amount`, `original currency`, and `BTC amount`.
 
-If the amount is less than what the receiver expected, the receiver will accept payment reservation, but will also "send"
-a message to a sender with information about BTC missing amount for payment. The sender can decide if the receiver
-conversion is fair. If it is not, the sender can cancel the payment reservation. If additional payment is acceptable, the
-sender will create a new route with a missing amount. Unless the Bitcoin price drops significantly in the meantime, the
-receiver will accept a new reservation route, and payment will continue as before, but this time over one additional payment route.
+If the received amount is lower than the anticipated amount, the recipient has two options. If the shortfall is less than
+the `add_reservation` `max_fee`, the recipient can demand the missing amount through fees. However, if the shortfall exceeds
+the `max_fee`, the recipient will accept the payment reservation, but will also "send" a message to a sender with information
+about BTC missing amount for payment. The sender can decide if the receiver conversion is fair. If it is not, the sender
+can cancel the payment reservation. If additional payment is acceptable, the sender will create a new route with a missing
+amount. Unless the Bitcoin price drops significantly in the meantime, the receiver will accept a new reservation route,
+and payment will continue as before, but this time over one additional payment route.
 
 ### Refund/ Partial Refund
 
